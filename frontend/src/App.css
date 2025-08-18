@@ -1,38 +1,167 @@
-.App {
-  text-align: center;
-}
+/* App.css */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  background-color: #111827; /* bg-gray-900 */
+  color: #F9FAFB; /* text-white */
+  padding: 1.5rem;
+  font-family: sans-serif;
 }
 
-.App-link {
-  color: #61dafb;
+.app-title {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 800; /* font-extrabold */
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  background-image: linear-gradient(to right, #20c2b2, #18a97b); /* from-teal-400 to-cyan-500 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (min-width: 640px) {
+  .app-title {
+    font-size: 3rem; /* sm:text-5xl */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* space-x-2 */
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 16rem; /* w-64 */
+  padding: 0.75rem; /* p-3 */
+  border-radius: 0.5rem; /* rounded-lg */
+  border-width: 1px; /* border */
+  border-color: #374151; /* border-gray-700 */
+  background-color: #1F2937; /* bg-gray-800 */
+  color: #F9FAFB; /* text-white */
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-input::placeholder {
+  color: #6B7280; /* placeholder-gray-500 */
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #06B6D4; /* ring-2 ring-cyan-500 */
+}
+
+@media (min-width: 640px) {
+  .search-input {
+    width: 20rem; /* sm:w-80 */
   }
+}
+
+.search-button {
+  padding: 0.75rem; /* p-3 */
+  background-color: #1F2937; /* bg-gray-800 */
+  color: #F9FAFB; /* text-white */
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid #374151; /* border-gray-700 */
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #374151; /* hover:bg-gray-700 */
+}
+
+.search-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #06B6D4; /* ring-2 ring-cyan-500 */
+}
+
+.movie-container {
+  width: 100%;
+  max-width: 72rem; /* max-w-6xl */
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1.5rem; /* gap-6 */
+}
+
+@media (min-width: 640px) {
+  .movie-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* sm:grid-cols-2 */
+  }
+}
+
+@media (min-width: 768px) {
+  .movie-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* md:grid-cols-3 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* lg:grid-cols-4 */
+  }
+}
+
+.movie-card {
+  background-color: #1F2937; /* bg-gray-800 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  overflow: hidden;
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-card-image {
+  width: 100%;
+  height: 18rem; /* h-72 */
+  object-fit: cover;
+}
+
+.movie-card-info {
+  padding: 1rem; /* p-4 */
+}
+
+.movie-type {
+  font-size: 0.75rem; /* text-xs */
+  font-weight: 600; /* font-semibold */
+  color: #9CA3AF; /* text-gray-400 */
+  text-transform: uppercase;
+  letter-spacing: 0.05em; /* tracking-wide */
+}
+
+.movie-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 700; /* font-bold */
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.movie-year {
+  font-size: 0.875rem; /* text-sm */
+  color: #6B7280; /* text-gray-500 */
+}
+
+.empty-message {
+  font-size: 1.125rem; /* text-lg */
+  color: #6B7280; /* text-gray-500 */
+  margin-top: 2rem;
 }
